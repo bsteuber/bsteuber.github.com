@@ -1,56 +1,46 @@
-//import processing.pdf.*;
+size(500, 500);
+background(#B7740F);
+stroke(0);
 
-int size   = 9;
-int pixels = 30;
-int first  = 100;
-int radius = pixels;
+int boardSize=9;
+int goMargin = 50;
+int firstPoint = goMargin;
 
-int coord2pixel(int x) {
-    return first + (x-1)*pixels;
+int prefLastPoint = width - goMargin;
+
+int goPixels = (int) ((prefLastPoint-firstPoint) / (boardSize-1));
+int stoneRadius = goPixels - 1;
+
+int coord2pixel(x) {
+    return firstPoint + (x-1) * goPixels;
 }
 
-int last = coord2pixel(size);
+int lastPoint = coord2pixel(boardSize);
 
-void board() {
-    for (int i=1;i<=size;i++) {
+void drawBoard() {
+    for (int i=1;i<=boardSize;i++) {
         int pix = coord2pixel(i);
-        line(first, pix, last, pix); 
-        line(pix, first, pix, last); 
-        
+        line(firstPoint, pix, lastPoint, pix); 
+        line(pix, firstPoint, pix, lastPoint); 
     }
 }
-
-void stone(int x, int y) {
-    ellipse(coord2pixel(x), coord2pixel(y), radius, radius); 
+ 
+void drawStone(x, y) {
+    ellipse(coord2pixel(x), coord2pixel(y), stoneRadius, stoneRadius); 
 }
 
-void black() {
-  fill(0);
+void addBlack(x, y) {
+    fill(0);
+    drawStone(x, y);
 }
 
-void white() {
-  fill(255);
+void addWhite(x, y) {
+    fill(255);
+    drawStone(x, y);
 }
 
-void setup() {
-    size(500, 500);
-//    beginRecord(PDF, "go.pdf");
-    background(255);
-    stroke(0);
-    board();
-    black();
-    stone(3, 3);
-    stone(4, 4);    
-    white();
-    stone(3, 4);
-    stone(4, 3);
-//    endRecord();
-}
-
-
-//void draw() {
-//}
-
-// void mousePressed() {
-    
-// }
+drawBoard();
+addBlack(3, 3);
+addBlack(7, 6);    
+addWhite(7, 3);
+addWhite(4, 7);
