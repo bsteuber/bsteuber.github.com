@@ -1,31 +1,12 @@
-.page {
-  width: 1024px;
-  margin: auto;
+.balance {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
 }
 
-.content-wrapper {
-  margin: 3em;
+.sgf-link {
+  padding: 0;
 }
 
-.login-bar-wrapper {
-  float: right;
-}
-
-.user-credits-wrapper {
-  margin-top: 2em;
-}
-
-.uploads table {
-  border-collapse: collapse;
-}
-
-.uploads th, .uploads td {
-  border: 1px solid black;
-  padding: 5px;
-}
-
-.original-sgf, .review-sgf {
-  text-decoration: underline;
-  color: #0000EE;
-  cursor: pointer;
+.uploads>table>tbody>tr>td {
+  vertical-align: middle;
 }
