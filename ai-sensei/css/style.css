@@ -10,3 +10,8 @@
 .uploads>table>tbody>tr>td {
   vertical-align: middle;
 }
+
+.analysis-tag {
+  display: inline-block;
+  width: 5em;
+}
