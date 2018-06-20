@@ -1,3 +1,0 @@
-SENSEI_ENV = {
-  PRODUCTION: true
-};
